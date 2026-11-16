@@ -1,0 +1,102 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#090b12">
+  <meta name="description" content="Famelio: el ranking de popularidad donde la gente decide quién está en la cima.">
+  <title>Famelio — La gente decide</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root{color-scheme:dark;--bg:#090b12;--panel:#111520;--panel2:#171d2a;--line:#252c3b;--muted:#8992a5;--text:#f4f6fb;--lime:#c5f36b;--purple:#9a8cff;--gold:#f4c66a}
+    *{box-sizing:border-box}body{margin:0;background:radial-gradient(ellipse at 50% -20%,#202440 0,transparent 48%),var(--bg);color:var(--text);font-family:'DM Sans',sans-serif;min-height:100vh}
+    button,input{font:inherit}button{cursor:pointer}.shell{max-width:1120px;margin:auto;padding:0 26px}
+    header{height:78px;border-bottom:1px solid #ffffff10;display:flex;align-items:center;position:sticky;top:0;background:#090b12eF;backdrop-filter:blur(18px);z-index:10}
+    .nav{display:flex;align-items:center;justify-content:space-between;width:100%}.brand{font:700 25px 'Space Grotesk';letter-spacing:-1.4px;color:#fff;text-decoration:none}.brand i{font-style:normal;color:var(--lime)}.navright{display:flex;align-items:center;gap:22px}.navlink{color:#aeb5c5;text-decoration:none;font-size:13px}.navlink:hover{color:white}.addtop{border:1px solid #3b465b;background:#171d2a;color:#fff;border-radius:10px;padding:10px 14px;font-size:13px;font-weight:700}.addtop:hover{border-color:var(--lime);color:var(--lime)}
+    .hero{text-align:center;padding:68px 0 42px}.eyebrow{display:inline-flex;align-items:center;gap:8px;color:var(--lime);font-size:11px;letter-spacing:1.7px;font-weight:800;text-transform:uppercase}.pulse{width:7px;height:7px;background:var(--lime);border-radius:50%;box-shadow:0 0 13px #c5f36b}.hero h1{font:700 clamp(42px,7vw,76px)/.99 'Space Grotesk';letter-spacing:-4px;margin:20px 0 15px}.hero h1 span{color:var(--lime)}.hero p{color:#9ba4b7;font-size:16px;line-height:1.6;max-width:550px;margin:0 auto}.heroactions{display:flex;justify-content:center;gap:10px;margin-top:26px}.primary{background:var(--lime);color:#11170a;border:0;border-radius:10px;padding:13px 18px;font-weight:800}.primary:hover{filter:brightness(1.07);transform:translateY(-1px)}.secondary{background:#171d2a;color:#e8ebf3;border:1px solid #30394b;border-radius:10px;padding:13px 18px;font-weight:700}
+    .stats{display:flex;justify-content:center;gap:38px;margin:34px auto 0}.stat strong{display:block;font:700 20px 'Space Grotesk'}.stat span{font-size:11px;color:var(--muted)}
+    .content{padding-bottom:80px}.toolbar{display:flex;justify-content:space-between;align-items:center;gap:15px;margin-bottom:17px;flex-wrap:wrap}.tabs,.filters{display:flex;gap:5px;background:#111520;border:1px solid var(--line);padding:4px;border-radius:11px}.tab,.filter{border:0;background:transparent;color:#929bad;padding:9px 13px;border-radius:8px;font-size:12px;font-weight:700}.tab.active,.filter.active{background:#272f40;color:#fff}.filter.active{color:var(--lime)}.searchwrap{position:relative;flex:1;max-width:290px}.searchwrap input{width:100%;background:#111520;border:1px solid var(--line);border-radius:10px;padding:11px 13px 11px 37px;color:#fff;outline:none;font-size:13px}.searchwrap input:focus{border-color:#65734d}.searchicon{position:absolute;left:13px;top:10px;color:#7f899e}
+    .board{border:1px solid var(--line);background:linear-gradient(145deg,#121724,#0e121c);border-radius:16px;overflow:hidden}.boardhead{padding:17px 20px;border-bottom:1px solid var(--line);display:flex;justify-content:space-between;align-items:center}.boardhead h2{font:600 15px 'Space Grotesk';margin:0}.live{font-size:10px;color:var(--lime);letter-spacing:1px;font-weight:800}.row{display:grid;grid-template-columns:45px minmax(0,1fr) 100px 115px;align-items:center;gap:14px;padding:14px 20px;border-bottom:1px solid #ffffff0a;transition:background .2s}.row:last-child{border-bottom:0}.row:hover{background:#ffffff06}.rank{font:700 17px 'Space Grotesk';color:#8992a5;text-align:center}.rank.first{color:var(--gold)}.person{display:flex;align-items:center;gap:12px;min-width:0}.avatar{width:44px;height:44px;border-radius:12px;display:grid;place-items:center;flex-shrink:0;font:700 13px 'Space Grotesk';color:#fff;background:linear-gradient(135deg,#5b6385,#292f48);overflow:hidden}.avatar img{width:100%;height:100%;object-fit:cover}.personname{font-weight:700;font-size:14px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.personmeta{font-size:11px;color:var(--muted);margin-top:3px}.votes{text-align:right}.votes strong{display:block;font:600 15px 'Space Grotesk'}.votes span{font-size:10px;color:var(--muted)}.trend{font-size:10px;color:var(--lime);margin-top:3px}.vote{justify-self:end;border:1px solid #394456;background:#1b2230;color:#e9edf5;border-radius:9px;padding:9px 13px;font-size:11px;font-weight:800;min-width:92px}.vote:hover{border-color:var(--lime);color:var(--lime)}.vote.done{background:#202b1b;border-color:#52643c;color:var(--lime)}
+    .footnote{font-size:11px;color:#707b90;padding:13px 18px;border-top:1px solid var(--line);line-height:1.5}.empty{text-align:center;padding:38px 15px;color:var(--muted);font-size:13px}.below{display:grid;grid-template-columns:1.2fr .8fr;gap:16px;margin-top:17px}.info{border:1px solid var(--line);background:#111520;border-radius:14px;padding:19px}.info h3{font:600 14px 'Space Grotesk';margin:0 0 7px}.info p{font-size:12px;color:#929bad;line-height:1.6;margin:0}.info strong{color:#e9edf5}.modalback{position:fixed;inset:0;background:#03050bd9;backdrop-filter:blur(7px);display:none;place-items:center;padding:20px;z-index:20}.modalback.open{display:grid}.modal{width:min(100%,430px);background:#151b28;border:1px solid #30394b;border-radius:17px;padding:23px;box-shadow:0 25px 90px #0009}.modalhead{display:flex;justify-content:space-between;align-items:center}.modal h2{font:600 20px 'Space Grotesk';margin:0}.close{border:0;background:#252d3d;color:#aeb7c8;border-radius:8px;width:32px;height:32px;font-size:18px}.modal p{font-size:12px;color:#929bad;line-height:1.5}.field{margin-top:15px}.field label{display:block;font-size:11px;color:#b5bdcc;font-weight:700;margin-bottom:7px}.field input,.field select{width:100%;padding:12px;background:#0e1320;border:1px solid #30394b;border-radius:9px;color:#fff;outline:none}.field input:focus,.field select:focus{border-color:var(--lime)}.modalactions{display:flex;justify-content:flex-end;gap:9px;margin-top:20px}.toast{position:fixed;bottom:22px;left:50%;transform:translate(-50%,20px);background:#202b1b;border:1px solid #52643c;color:var(--lime);padding:11px 16px;border-radius:10px;font-size:12px;opacity:0;pointer-events:none;transition:.25s;z-index:30}.toast.show{opacity:1;transform:translate(-50%,0)}
+    @media(max-width:650px){.shell{padding:0 15px}.navlink{display:none}.hero{padding:52px 0 32px}.hero h1{letter-spacing:-2.5px}.hero p{font-size:14px}.stats{gap:22px}.stat strong{font-size:17px}.toolbar{align-items:stretch}.tabs{width:100%;justify-content:space-between}.tab{flex:1;padding:9px 7px}.searchwrap{max-width:none;order:3;flex-basis:100%}.filters{width:100%;overflow:auto}.row{grid-template-columns:28px minmax(0,1fr) 75px 78px;gap:8px;padding:12px 10px}.avatar{width:38px;height:38px;border-radius:10px}.person{gap:8px}.personname{font-size:12px}.personmeta{font-size:10px}.votes strong{font-size:12px}.vote{min-width:0;padding:8px 9px;font-size:10px}.below{grid-template-columns:1fr}.boardhead{padding:15px}.rank{font-size:14px}}
+  </style>
+</head>
+<body>
+<header><div class="shell nav"><a class="brand" href="#">famelio<i>.</i></a><div class="navright"><a class="navlink" href="#ranking">Ranking</a><a class="navlink" href="#como-funciona">Cómo funciona</a><button class="addtop" id="openAdd">＋ Proponer famoso</button></div></div></header>
+<main class="shell">
+  <section class="hero">
+    <div class="eyebrow"><span class="pulse"></span> La popularidad la decide la gente</div>
+    <h1>¿Quién está<br>en la <span>cima?</span></h1>
+    <p>Un ranking abierto de las personas más populares. Buscá a tu favorito, dale tu voto o sumá a alguien que todavía no está.</p>
+    <div class="heroactions"><button class="primary" id="jumpRanking">Explorar ranking ↓</button><button class="secondary" id="heroAdd">＋ Agregar famoso</button></div>
+    <div class="stats"><div class="stat"><strong id="peopleCount">12</strong><span>PERSONAS</span></div><div class="stat"><strong id="voteCount">—</strong><span>VOTOS DE DEMO</span></div><div class="stat"><strong>Abierto</strong><span>PARA TODOS</span></div></div>
+  </section>
+  <section class="content" id="ranking">
+    <div class="toolbar">
+      <div class="tabs" role="tablist"><button class="tab active" data-scope="world">🌎 Mundial</button><button class="tab" data-scope="argentina">🇦🇷 Argentina</button></div>
+      <div class="searchwrap"><span class="searchicon">⌕</span><input id="search" type="search" placeholder="Buscar una persona..."></div>
+      <div class="filters"><button class="filter active" data-category="Todos">Todos</button><button class="filter" data-category="Música">Música</button><button class="filter" data-category="Deportes">Deportes</button><button class="filter" data-category="Creadores">Creadores</button><button class="filter" data-category="Cine">Cine</button></div>
+    </div>
+    <div class="board"><div class="boardhead"><h2 id="boardTitle">Ranking mundial</h2><span class="live">● EN VIVO · DEMO</span></div><div id="rows"></div><div class="footnote">Los números iniciales son ilustrativos. Esta versión guarda tus votos y propuestas en este navegador; todavía no existe una base de datos compartida entre visitantes.</div></div>
+    <div class="below" id="como-funciona"><div class="info"><h3>La gente decide quién sube.</h3><p>Cada persona puede apoyar a sus favoritos. El ranking se ordena por votos y cualquiera puede proponer nuevos nombres. <strong>Un voto por persona y famoso</strong> será la regla del producto cuando conectemos cuentas y base de datos.</p></div><div class="info"><h3>¿No está tu favorito?</h3><p>Proponelo para sumarlo al ranking. Revisaremos duplicados y nombres antes de publicarlos.</p><button class="addtop" style="margin-top:13px" id="infoAdd">＋ Proponer una persona</button></div></div>
+  </section>
+</main>
+<div class="modalback" id="modal"><form class="modal" id="addForm"><div class="modalhead"><h2>Sumar al ranking</h2><button type="button" class="close" id="closeModal" aria-label="Cerrar">×</button></div><p>Proponé una persona conocida para que la comunidad pueda descubrirla y votarla.</p><div class="field"><label for="name">NOMBRE</label><input id="name" maxlength="70" required placeholder="Ej. Tini Stoessel"></div><div class="field"><label for="category">CATEGORÍA</label><select id="category"><option>Música</option><option>Deportes</option><option>Creadores</option><option>Cine</option><option>Política</option><option>Otro</option></select></div><div class="field"><label for="country">PAÍS</label><select id="country"><option value="Argentina">Argentina</option><option value="Otro">Otro</option></select></div><div class="modalactions"><button type="button" class="secondary" id="cancelModal">Cancelar</button><button class="primary" type="submit">Enviar propuesta</button></div></form></div>
+<div class="toast" id="toast"></div>
+<script>
+const seed=[
+{name:"Lionel Messi",category:"Deportes",country:"Argentina",votes:152840,initials:"LM",color:"linear-gradient(135deg,#70a9d5,#344b78)"},
+{name:"Cristiano Ronaldo",category:"Deportes",country:"Otro",votes:140230,initials:"CR",color:"linear-gradient(135deg,#a1a6ad,#454b59)"},
+{name:"Taylor Swift",category:"Música",country:"Otro",votes:98420,initials:"TS",color:"linear-gradient(135deg,#b68b70,#624c61)"},
+{name:"Duki",category:"Música",country:"Argentina",votes:87210,initials:"DU",color:"linear-gradient(135deg,#9d6bc7,#49345e)"},
+{name:"Cristina Fernández de Kirchner",category:"Política",country:"Argentina",votes:71300,initials:"CF",color:"linear-gradient(135deg,#7f8eb6,#3d496d)"},
+{name:"Bizarrap",category:"Música",country:"Argentina",votes:69850,initials:"BZ",color:"linear-gradient(135deg,#7b8a9e,#343e52)"},
+{name:"MrBeast",category:"Creadores",country:"Otro",votes:65320,initials:"MB",color:"linear-gradient(135deg,#5f9bd0,#314e80)"},
+{name:"Tini Stoessel",category:"Música",country:"Argentina",votes:62100,initials:"TI",color:"linear-gradient(135deg,#d58da9,#714d76)"},
+{name:"Zendaya",category:"Cine",country:"Otro",votes:58800,initials:"ZE",color:"linear-gradient(135deg,#b7836d,#654a55)"},
+{name:"Paulo Dybala",category:"Deportes",country:"Argentina",votes:55200,initials:"PD",color:"linear-gradient(135deg,#9b9ba8,#4c5062)"},
+{name:"Lali Espósito",category:"Música",country:"Argentina",votes:51300,initials:"LE",color:"linear-gradient(135deg,#cb7eae,#704b7b)"},
+{name:"Ibai Llanos",category:"Creadores",country:"Otro",votes:48700,initials:"IL",color:"linear-gradient(135deg,#b47b5f,#63463c)"}
+];
+let people=JSON.parse(localStorage.getItem("famelio_people")||"null")||seed;
+let voted=new Set(JSON.parse(localStorage.getItem("famelio_voted")||"[]"));
+let scope="world",category="Todos";
+const $=s=>document.querySelector(s);
+const fmt=n=>new Intl.NumberFormat("es-AR").format(n);
+function save(){localStorage.setItem("famelio_people",JSON.stringify(people));localStorage.setItem("famelio_voted",JSON.stringify([...voted]));}
+function render(){
+ const q=$("#search").value.trim().toLowerCase();
+ let list=people.filter(p=>(scope==="world"||p.country==="Argentina")&&(category==="Todos"||p.category===category)&&p.name.toLowerCase().includes(q)).sort((a,b)=>b.votes-a.votes);
+ $("#boardTitle").textContent=scope==="world"?"Ranking mundial":"Ranking de Argentina";
+ $("#peopleCount").textContent=fmt(people.length);
+ $("#voteCount").textContent=fmt(people.reduce((s,p)=>s+p.votes,0));
+ $("#rows").innerHTML=list.length?list.map((p,i)=>{const id=key(p.name),done=voted.has(id);return '<div class="row"><div class="rank '+(i===0?'first':'')+'">'+String(i+1).padStart(2,"0")+'</div><div class="person"><div class="avatar" style="background:'+p.color+'">'+esc(p.initials||p.name.split(/\s+/).map(x=>x[0]).slice(0,2).join("").toUpperCase())+'</div><div style="min-width:0"><div class="personname">'+esc(p.name)+'</div><div class="personmeta">'+esc(p.category)+' · '+(p.country==="Argentina"?"🇦🇷 Argentina":"🌎 Internacional")+'</div></div></div><div class="votes"><strong>'+fmt(p.votes)+'</strong><span>votos</span></div><button class="vote '+(done?'done':'')+'" data-vote="'+encodeURIComponent(p.name)+'">'+(done?'✓ Votado':'+ Votar')+'</button></div>'}).join(""):'<div class="empty">No encontramos a nadie con ese nombre. ¡Podés proponerlo!</div>';
+}
+function key(s){return s.normalize("NFD").replace(/[\u0300-\u036f]/g,"").toLowerCase()}
+function esc(s){return String(s).replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]))}
+function toast(msg){const t=$("#toast");t.textContent=msg;t.classList.add("show");setTimeout(()=>t.classList.remove("show"),2400)}
+function openModal(){$("#modal").classList.add("open");$("#name").focus()}
+function closeModal(){$("#modal").classList.remove("open")}
+document.addEventListener("click",e=>{
+ const b=e.target.closest("[data-vote]");if(b){const name=decodeURIComponent(b.dataset.vote),id=key(name);if(voted.has(id)){toast("Ya votaste por esta persona desde este navegador.");return}const p=people.find(x=>key(x.name)===id);if(p){p.votes++;voted.add(id);save();render();toast("¡Voto registrado para "+p.name+"!")} }
+ const tab=e.target.closest("[data-scope]");if(tab){scope=tab.dataset.scope;document.querySelectorAll(".tab").forEach(x=>x.classList.toggle("active",x===tab));render()}
+ const f=e.target.closest("[data-category]");if(f){category=f.dataset.category;document.querySelectorAll(".filter").forEach(x=>x.classList.toggle("active",x===f));render()}
+});
+$("#search").addEventListener("input",render);
+["openAdd","heroAdd","infoAdd"].forEach(id=>$("#"+id).addEventListener("click",openModal));
+$("#jumpRanking").addEventListener("click",()=>$("#ranking").scrollIntoView({behavior:"smooth"}));
+["closeModal","cancelModal"].forEach(id=>$("#"+id).addEventListener("click",closeModal));
+$("#modal").addEventListener("click",e=>{if(e.target===$("#modal"))closeModal()});
+$("#addForm").addEventListener("submit",e=>{
+ e.preventDefault();const name=$("#name").value.trim(),cat=$("#category").value,country=$("#country").value;
+ if(!name)return;
+ if(people.some(p=>key(p.name)===key(name))){toast("Esa persona ya está en el ranking.");return}
+ people.push({name,category:cat,country,votes:0,initials:name.split(/\s+/).map(x=>x[0]).slice(0,2).join("").toUpperCase(),color:"linear-gradient(135deg,#75869e,#343e52)"});
+ save();scope=country==="Argentina"?"argentina":"world";category="Todos";document.querySelectorAll(".tab").forEach(x=>x.classList.toggle("active",x.dataset.scope===scope));document.querySelectorAll(".filter").forEach(x=>x.classList.toggle("active",x.dataset.category==="Todos"));$("#search").value="";render();closeModal();e.target.reset();toast("Propuesta agregada a esta demo.");
+});
+render();
+</script>
+</body>
+</html>
